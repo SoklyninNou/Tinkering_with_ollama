@@ -4,7 +4,7 @@ import time
 
 file_path = "./data/transcript.txt"
 with open(file_path, 'a') as f:
-    f.write(f"New Conversation Started: [{time.strftime('%Y-%m-%d %H:%M:%S')}]\n")
+    f.write(f"\nNew Conversation Started: [{time.strftime('%Y-%m-%d %H:%M:%S')}]\n")
 
 def generate_text_response():
     while True:
