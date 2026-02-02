@@ -6,7 +6,7 @@ import numpy as np
 import time
 from helper import transcript
 
-model = Model("vosk-model-en-us-0.42-gigaspeech")
+model = Model("../AI/vosk-model-en-us-0.42-gigaspeech")
 rec = KaldiRecognizer(model, 16000)
 SILENCE_THRESHOLD = 50
 # Create or clear transcript file
