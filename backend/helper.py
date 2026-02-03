@@ -1,13 +1,18 @@
 import time
 import os
+from pathlib import Path
+from bs4 import BeautifulSoup
 
 def load_context(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         return f.read()
     
-def transcript(file_path, speaker, text):
+def transcript(file_path, speaker, text):      
     with open(file_path, 'a') as f:
-        f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {speaker}: {text}\n")
+        if speaker == "":
+            f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}]\n")
+        else:
+            f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {speaker}: {text}\n")
         
 # Putting all lecture .typ files into one file
 def group_lecture(directory_path, output_file):
@@ -32,6 +37,29 @@ def mass_renaming(directory_path, file_format):
             new_name = f"lecture_{counter}.{file_format}"
             os.rename(os.path.join(directory_path, file), os.path.join(directory_path, new_name))
             counter += 1
-            
+
+def html_to_txt():
+    HTML_DIR = Path("./data")
+    TXT_DIR = Path("./data")
+    TXT_DIR.mkdir(exist_ok=True)
+
+    for html_file in HTML_DIR.glob("*.html"):
+        with open(html_file, "r", encoding="utf-8") as f:
+            soup = BeautifulSoup(f, "html.parser")
+
+        for tag in soup(["script", "style"]):
+            tag.decompose()
+
+        text = soup.get_text(separator="\n")
+
+        lines = [line.strip() for line in text.splitlines()]
+        text = "\n".join(line for line in lines if line)
+
+        txt_file = TXT_DIR / (html_file.stem + ".txt")
+        txt_file.write_text(text, encoding="utf-8")
+
+    print("HTML → TXT conversion done!")
+    
+html_to_txt()
 # mass_renaming("data/lecture-image", "jpg")
 # group_lecture("data/lectures", "grouped_lectures.txt")

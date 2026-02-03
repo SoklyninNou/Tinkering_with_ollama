@@ -1,26 +1,19 @@
 import ollama
 from helper import load_context
-from PIL import Image
 from transformers import MllamaForConditionalGeneration, AutoProcessor, MllamaProcessor
 
 def generate_response(file_path, user_prompt):
     transcript = load_context(file_path)
-    system_message = (
-        "You are a student named SlyBot that assists users in general tasks.\n"
-        "Never mention that you are an AI model.\n"
-        "The transcript of the conversation is in the following format:\n"
-        "[year-month-day hour:minute:second] <text>\n"
-        "The time is provided for context only and should not be included in your responses.\n"
-        "It is the closest approximation of current.\n"
-        "Use this transcript to understand context and respond appropriately but don't output any timestamps.\n"
-    )
-    
-    image_paths = [
-        f"../data/lecture_image/images/{i}.jpg" for i in range(1, 25)
-    ]
+    lectures = "./data/grouped_lectures.txt"
+
+    initial_sys_message = load_context("./data/system_message.txt")
+    system_message = initial_sys_message.format(
+        lectures=lectures,
+        transcript=transcript
+    )   
     
     response = ollama.chat(
-        model='llama3.2-vision',
+        model='llama3.2',
         messages=[
             {
                 'role': 'system',
@@ -29,11 +22,6 @@ def generate_response(file_path, user_prompt):
             {
                 'role': 'user',
                 'content': user_prompt,
-                'images': image_paths
-            },
-            {
-                'role': 'transcript',
-                'content': transcript
             }
         ],
         stream=True

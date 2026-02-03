@@ -4,7 +4,7 @@ import time
 
 file_path = "./data/transcript.txt"
 with open(file_path, 'a') as f:
-    f.write(f"\nNew Conversation Started: [{time.strftime('%Y-%m-%d %H:%M:%S')}]\n")
+    f.write(f"New Conversation Started: [{time.strftime('%Y-%m-%d %H:%M:%S')}]\n")
 
 def generate_text_response():
     while True:
@@ -15,6 +15,7 @@ def generate_text_response():
             break
         if input_text.lower() in ['goodbye', 'bye', 'see you']:
             generate_response(file_path, "goodbye")
+            transcript(file_path, "", "Conversation Ended\n\n")
             break
         print("Slybot: ", end='', flush=True)
         response = generate_response(file_path, input_text)
@@ -23,3 +24,4 @@ def generate_text_response():
         
 if __name__ == "__main__":
     generate_text_response()
+    # how many lectures are there?
