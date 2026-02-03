@@ -3,9 +3,6 @@ from helper import load_context
 from PIL import Image
 from transformers import MllamaForConditionalGeneration, AutoProcessor, MllamaProcessor
 
-images = ""  # Placeholder
-
-
 def generate_response(file_path, user_prompt):
     transcript = load_context(file_path)
     system_message = (
@@ -19,11 +16,8 @@ def generate_response(file_path, user_prompt):
     )
     
     image_paths = [
-        f"images/{i}.jpg" for i in range(1, 25)
+        f"../data/lecture_image/images/{i}.jpg" for i in range(1, 25)
     ]
-    
-    for img in images:
-        image_paths.append(img)
     
     response = ollama.chat(
         model='llama3.2-vision',

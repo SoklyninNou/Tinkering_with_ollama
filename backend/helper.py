@@ -33,5 +33,5 @@ def mass_renaming(directory_path, file_format):
             os.rename(os.path.join(directory_path, file), os.path.join(directory_path, new_name))
             counter += 1
             
-mass_renaming("data/lecture-image", "jpg")
+# mass_renaming("data/lecture-image", "jpg")
 # group_lecture("data/lectures", "grouped_lectures.txt")
