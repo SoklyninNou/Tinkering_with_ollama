@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h4>K-Consistency</h4>
+    <p>We have seen before 1-consistency, where a constraint only applies to one variable, 2-consistency, where any pair of variables must be consistent. We can expand this notion to <strong>K-Consistency</strong>, which says that:</p>
+    <h4>Structure</h4>
+    <p>We can exploit the structure of the problem to more efficiently solve the problem. A case is to use divide and conquer to tackle the subproblems, assuming they are independent.<br></p>
+    <p><strong>Theorem:</strong> If the constraint graph has no loops, the CSP can be solved in</p>
+    <p>.<br></p>
+    <p>Another way of exploiting the structure is to turn the graph into a topological graph, where the directed edges are the arcs.</p>
+    <p>In general, if a CSP is tree-structured or close to tree-structured, we can run the tree-structured CSP algorithm on it to derive a solution in linear time. Similarly, if a CSP is close to tree-structured, we can use cut-set conditioning to transform the CSP into one or more independent tree-structured CSPs and solve each of these separately.</p>
+    <h3>Iterative Algorithms for CSPs</h3>
+    <p>We start with a complete assignment of all the problems. Then, while it is not solved, we iteratively assign a different value to a randomly selected variable. We can use the minimum-conflict heuristic for this.</p>
+    <h3>Local Search</h3>
+    <p><strong>Local Search</strong> is an algorithm where you start at an initial state and gradually improve by looking at the neighbors. We do this until we reach a local optimal solution. This is the same as <strong>Gradient Decent</strong>.</p>
+    <h3>Genetic Algorithms</h3>
+    <p>In <strong>Genetic Algorithms</strong>, we keep the best N solutions at each step based on a fitness function and perform pairwise crossover operators, with optional mutation to give variety in the hopes that the children is a better solution. This is analogous to natural selection.</p>
+  </body>
+</html>

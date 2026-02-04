@@ -1,0 +1,55 @@
+Size of Bayes’ Net
+Because each node much encode the probability given its parents, the size of the Bayes’ Net scales exponentially with each new variable, specifically
+where
+is the number of direct parent,
+is the number of nodes, and
+is the sample space.
+Independence of Bayes’ Net
+Encoded in a Bayes’ Net is the implication that any nodes not connected are conditionally independent of each other:
+We can then say that
+and
+are conditionally independent given
+, as well as:
+D-Separation
+In general, proving independence is very tedious since it requires analyzing all
+nodes. We should then use the
+D-Separation
+algorithm to simplify the process.
+To prove that
+, we ask ourselves if we know
+, does knowing
+or
+affect the outcome:
+We can intuitively think of it as if removing
+will remove all paths going from
+to
+.
+Example 1:
+In the above example,
+and
+are independent from each other but are not conditionally independent given
+.
+Example 2:
+In the above example,
+and
+are not independent from each other but are conditionally independent given
+.
+These two examples highlight how the direction of the arc is important to determine conditionally and unconditionally independence.
+Active/Inactive Paths
+The quickest way of checking for conditional and unconditional independence is to check for
+Active/Inactive Paths
+. The common pattern for
+Active Triples
+are:
+Casual Chain:
+, where
+is unobserved
+Common Cause:
+, where
+is unobserved
+Common Effect:
+, where
+or one of its descendents are observed
+If an inactive segment is on the path between two nodes, then the path is blocked. If there is no path form
+to
+, then they are independent.

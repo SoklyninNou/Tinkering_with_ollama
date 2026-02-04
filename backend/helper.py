@@ -14,13 +14,13 @@ def transcript(file_path, speaker, text):
         else:
             f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {speaker}: {text}\n")
         
-# Putting all lecture .typ files into one file
+# Putting all lecture files into one file
 def group_lecture(directory_path, output_file):
     lecture_counter = 1
     with open(os.path.join(directory_path, output_file), 'w', encoding='utf-8') as f:
             f.write("Lecture Contents:\n")
     for file in os.listdir(directory_path):
-        if file.endswith('.typ'):
+        if file.endswith('.txt'):
             with open(os.path.join(directory_path, file), 'r', encoding='utf-8') as f:
                 content = f.read()
         with open(os.path.join(directory_path, output_file), 'a', encoding='utf-8') as f:
@@ -39,16 +39,13 @@ def mass_renaming(directory_path, file_format):
             counter += 1
 
 def html_to_txt():
-    HTML_DIR = Path("./data")
-    TXT_DIR = Path("./data")
+    HTML_DIR = Path("./data/lectures")
+    TXT_DIR = Path("./data/lectures_txt")
     TXT_DIR.mkdir(exist_ok=True)
 
-    for html_file in HTML_DIR.glob("*.html"):
+    for html_file in sorted(HTML_DIR.glob("lecture_*.html")):
         with open(html_file, "r", encoding="utf-8") as f:
             soup = BeautifulSoup(f, "html.parser")
-
-        for tag in soup(["script", "style"]):
-            tag.decompose()
 
         text = soup.get_text(separator="\n")
 
@@ -57,9 +54,7 @@ def html_to_txt():
 
         txt_file = TXT_DIR / (html_file.stem + ".txt")
         txt_file.write_text(text, encoding="utf-8")
-
-    print("HTML → TXT conversion done!")
     
-html_to_txt()
+# html_to_txt()
 # mass_renaming("data/lecture-image", "jpg")
 # group_lecture("data/lectures", "grouped_lectures.txt")

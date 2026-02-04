@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h2>Markov Chains</h2>
+    <p>A Markov chain is a mathematical system that undergoes transitions from one state to another on a state space. It is a random process that satisfies the Markov property, which states that the future state depends only on the current state and not on the sequence of events that preceded it.</p>
+    <p><strong>Components of a Markov Chain:</strong><br></p>
+    <ul>
+      <li><strong>States (S):</strong> A finite set of states representing the possible configurations of the system.</li>
+      <li><strong>Transition Probabilities (P):</strong> A matrix that defines the probabilities of transitioning from one state to another.</li>
+      <li><strong><p>Initial State Distribution (</p><p>):</p></strong><span style="white-space: pre-wrap">&#x20;</span>A probability distribution over the states that defines the starting state of the system.</li>
+    </ul>
+    <h3>Mini-Forward Algorithm</h3>
+    <p>The mini-forward algorithm is a simplified version of the forward algorithm used in Hidden Markov Models (HMMs) to compute the probability of a sequence of observations. It operates by iteratively updating the probabilities of being in each state at each time step based on the transition probabilities and observation likelihoods.</p>
+    <p><strong>Algorithm:</strong><br></p>
+    <ol>
+      <li value="1">Initialize the probabilities for the initial state distribution.</li>
+      <li value="2">For each time step, update the probabilities for each state based on the previous time step’s probabilities, transition probabilities, and observation likelihoods.</li>
+      <li value="3">Normalize the probabilities at each time step to ensure they sum to 1.</li>
+    </ol>
+    <p><strong>Example:</strong><br>Consider a simple HMM with two states (Rainy and Sunny) and two observations (Walk and Shop). The transition probabilities and observation likelihoods are defined as follows:</p>
+    <ul>
+      <li>
+        <p>Transition Probabilities:</p>
+        <ul>
+          <li>P(Rainy | Rainy) = 0.7</li>
+          <li>P(Sunny | Rainy) = 0.3</li>
+          <li>P(Rainy | Sunny) = 0.4</li>
+          <li>P(Sunny | Sunny) = 0.6</li>
+        </ul>
+      </li>
+      <li>
+        <p>Observation Likelihoods:</p>
+        <ul>
+          <li>P(Walk | Rainy) = 0.1</li>
+          <li>P(Shop | Rainy) = 0.9</li>
+          <li>P(Walk | Sunny) = 0.6</li>
+          <li>P(Shop | Sunny) = 0.4</li>
+        </ul>
+      </li>
+    </ul>
+    <p>To compute the probability of the observation sequence [Walk, Shop] using the mini-forward algorithm:</p>
+    <ol>
+      <li value="1">Initialize the probabilities for the initial state distribution (e.g., P(Rainy) = 0.5, P(Sunny) = 0.5).</li>
+      <li value="2">
+        <p>For the first observation (Walk), update the probabilities for each state:</p>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      </li>
+      <li value="3">Normalize the probabilities.</li>
+      <li value="4">For the second observation, repeat the update process using the first observation probabilities.</li>
+      <li value="5">Normalize the probabilities again.</li>
+    </ol>
+    <p>The final probabilities is the likelihood of being in each state after observing the sequence [Walk, Shop].</p>
+    <h3>Stationary Distributions</h3>
+    <p>A stationary distribution is a probability distribution over the states of a Markov chain that remains unchanged as the system evolves over time. In other words, if the Markov chain starts in the stationary distribution, it will remain in that distribution at all future time steps.</p>
+    <p><strong>Finding Stationary Distributions:</strong><br>To find the stationary distribution of a Markov chain, we need to solve the following equation:</p>
+    <p>where</p>
+    <p>is the stationary distribution vector and P is the transition probability matrix. This equation states that the stationary distribution is an eigenvector of the transition matrix corresponding to the eigenvalue 1.</p>
+    <p><strong>Example:</strong><br>Consider a Markov chain with the following transition matrix:</p>
+    <pre><code>|     |  A  |  B  |<br>|  A  | 0.8 | 0.2 |<br>|  B  | 0.4 | 0.6 |</code></pre>
+    <p>To find the stationary distribution π = [π(A), π(B)], we need to solve the equations:</p>
+    <p><strong>Properties of Stationary Distributions:</strong><br></p>
+    <ul>
+      <li>A Markov chain can have multiple stationary distributions if it is not irreducible or aperiodic.</li>
+      <li>If a Markov chain is irreducible and aperiodic, it has a unique stationary distribution.</li>
+      <li>The stationary distribution can be interpreted as the long-term behavior of the Markov chain.</li>
+    </ul>
+    <h3>Hidden Markov Models (HMMs)</h3>
+    <p>A Hidden Markov Model (HMM) is a statistical model that represents a system with hidden states that generate observable outputs. HMMs are widely used in various applications, including speech recognition, natural language processing, and bioinformatics.</p>
+    <h3>Filtering / Monitoring</h3>
+    <p>Filtering, also known as monitoring, is the process of estimating the current hidden state of a system based on a sequence of observations. In an HMM, filtering involves computing the posterior distribution of the hidden state given the observed evidence up to the current time step.</p>
+    <h4>Passage of Time Update</h4>
+    <p>When time passes without any new observations, we need to update our beliefs about the hidden state based on the transition probabilities of the HMM. This is done using the following equation:</p>
+    <p>This says that the belief in state s’ is the sum over all the probability of transitioning from s to s’, for all s, times the belief in s.</p>
+    <p><strong>Algorithm:</strong><br></p>
+    <ol>
+      <li value="1">Initialize the belief state based on the initial state distribution.</li>
+      <li value="2">For each time step, update the belief state using the transition probabilities and observation likelihoods.</li>
+      <li value="3">Normalize the belief state to ensure it sums to 1.</li>
+    </ol>
+    <p><strong>Example:</strong><br>Consider an HMM with two hidden states (Rainy and Sunny) and two observations (Walk and Shop). Given a sequence of observations [Walk, Shop], we want to estimate the current hidden state using filtering.</p>
+    <ol>
+      <li value="1">Initialize the belief state (e.g., P(Rainy) = 0.5, P(Sunny) = 0.5).</li>
+      <li value="2">
+        <p>For the first observation (Walk), update the belief state:</p>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      </li>
+      <li value="3">Normalize the belief state.</li>
+      <li value="4">For the second observation (Shop), repeat the update process using the first observation belief state.</li>
+      <li value="5">Normalize the belief state again.</li>
+    </ol>
+    <p>The final belief state represents the estimated probabilities of being in each hidden state after observing the sequence [Walk, Shop].</p>
+    <h4>Observation Update</h4>
+    <p>After we receive an observation, we need to update our beliefs based on how likely that observation is in each state. This is done using Bayes’ theorem:</p>
+    <p>where alpha is a normalization constant to ensure the beliefs sum to 1. This update adjusts our belief in each state based on the likelihood of the observed evidence given that state.</p>
+    <h3>Forward Algorithm</h3>
+    <p>The forward algorithm is a dynamic programming algorithm used in Hidden Markov Models (HMMs) to compute the probability of a sequence of observations. It operates by iteratively updating the probabilities of being in each hidden state at each time step based on the transition probabilities and observation likelihoods.</p>
+    <p><strong>Algorithm:</strong><br></p>
+    <ol>
+      <li value="1">
+        <p>Passage of Time:</p>
+        <ul>
+          <li>
+            <p>This says that the probability of getting to state</p>
+            <p>is the sum over all the ways of getting to</p>
+            <p>from any previous state</p>
+            <p>, times the probability of being in that previous state</p>
+            <p>.</p>
+          </li>
+        </ul>
+      </li>
+      <li value="2">
+        <p>Observe evidence:</p>
+        <ul>
+          <li>
+            <p>This says that the probability of being in state</p>
+            <p>given evidence</p>
+            <p>is proportional to the likelihood of observing</p>
+            <p>given state</p>
+            <p>, times the prior probability of being in state</p>
+            <p>.</p>
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h3>Online Belief Update</h3>
+    <p>The online belief update is a method for updating the belief state of a Hidden Markov Model (HMM) as new observations are received. It combines the passage of time update and the observation update to maintain an accurate estimate of the hidden state over time.</p>
+  </body>
+</html>

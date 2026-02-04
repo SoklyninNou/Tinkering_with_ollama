@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h2>Foramlizing Learning</h2>
+    <h3>Inductive Learning</h3>
+    <p>In inductive learning, we observe examples and attempt to generalize from them. We do this by creating a function that maps inputs to outputs based on the observed data. The goal is to find a hypothesis that accurately predicts the output for new, unseen inputs. We can formalize this process as follows:</p>
+    <ul>
+      <li>
+        <p>Target Function</p>
+      </li>
+      <li>
+        <p>Hypothesis Space</p>
+        <p>where each</p>
+      </li>
+      <li>
+        <p>Training Data</p>
+        <p>where</p>
+      </li>
+    </ul>
+    <p>Find</p>
+    <p>such that</p>
+    <p>for all</p>
+    <p>and</p>
+    <p>generalizes well to unseen data.</p>
+    <h3>Bias and Variance</h3>
+    <p>When evaluating a learning algorithm, we often consider two key concepts: bias and variance.</p>
+    <ul>
+      <li>
+        <p><strong>Bias</strong> How well the model can spot the pattern. High bias can lead to underfitting, where the model fails to capture the underlying patterns in the data.</p>
+      </li>
+      <li>
+        <p><strong>Variance</strong> refers to the error introduced by the model’s sensitivity to small fluctuations in the training data. High variance can lead to overfitting.</p>
+      </li>
+    </ul>
+    <p>To lower variance, we can opeerationalize simplicity by:</p>
+    <ul>
+      <li>
+        <p>Reduce number of features / Reducing the complexity of the hypothesis space</p>
+      </li>
+      <li>Regularization: Adding a penalty term to the loss function to discourage complex models</li>
+    </ul>
+    <h2>Decision Trees</h2>
+    <p>Decision trees are a popular method for both classification and regression tasks. They work by recursively partitioning the input space into regions based on feature values, leading to a tree structure where each internal node represents a decision based on a feature, and each leaf node represents a predicted output. <strong>Example:</strong><span style="white-space: pre-wrap">&#x20;</span><code><br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>[Is it raining?]<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>/<span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>\<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>Yes<span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>No<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>/<span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>\<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;</span>[Have umbrella?]<span style="white-space: pre-wrap">&#x20;&#x20;&#x20;</span>[Go outside]<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>/<span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>\<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;</span>Yes<span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>No<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;</span>/<span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>\<br><span style="white-space: pre-wrap">&#x20;&#x20;</span>[Go outside] [Stay inside]<br></code></p>
+    <h3>Decision Trees vs Perceptrons</h3>
+    <p>Decision trees and perceptrons are both used for classification tasks, but they have different strengths and weaknesses.</p>
+    <ul>
+      <li>
+        <p>Decision Trees:</p>
+        <ul>
+          <li>Can handle both categorical and numerical data</li>
+          <li>Can model non-linear decision boundaries</li>
+          <li>Prone to overfitting if not pruned properly</li>
+        </ul>
+      </li>
+      <li>
+        <p>Perceptrons:</p>
+        <ul>
+          <li>Primarily used for binary classification</li>
+          <li>Can only model linear decision boundaries</li>
+          <li>Less interpretable than decision trees</li>
+        </ul>
+      </li>
+    </ul>
+    <p><strong>Algorithm:</strong><br>We grow the tree recursively by selecting the feature that splits the data at each node into the most homogeneous subsets:<span style="white-space: pre-wrap">&#x20;</span><code><br>function build_tree(data, features):<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;</span>if all examples have the same label:<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>return leaf node with that label<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;</span>if features is empty:<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>return leaf node with majority label<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;</span>best_feature = select_best_feature(data, features)<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;</span>tree = create_node(best_feature)<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;</span>for each value v of best_feature:<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>subset = filter data where best_feature == v<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>child_node = build_tree(subset, features - {best_feature})<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;</span>add child_node to tree<br><span style="white-space: pre-wrap">&#x20;&#x20;&#x20;&#x20;</span>return tree<br><span style="white-space: pre-wrap">&#x20;&#x20;</span></code></p>
+    <h3>Entropy and Information</h3>
+    <p>To select the best feature for splitting the data, we can use the concept of entropy and information gain. Information says that the more uncertain about the outcome, the more information is gained when that uncertainty is reduced. Entropy is the expected amount of information needed to classify a randomly drawn example:</p>
+    <p>Information Gain is the reduction in entropy after a dataset is split on an attribute. Using this measure, we can select the feature that maximizes information gain at each node in the decision tree.</p>
+    <h3>P-Chance</h3>
+    <p>P-Chance is the probability to recieve the information gain by chance. We use P-chance to determine if our model is overfitting the data.</p>
+  </body>
+</html>
