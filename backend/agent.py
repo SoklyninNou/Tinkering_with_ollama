@@ -16,7 +16,7 @@ def generate_response(file_path, user_prompt):
     initial_sys_message = load_context("./data/system_message.txt")
 
     system_message = initial_sys_message.format(
-        lectures=relevant_lectures,
+        lectures=relevant_lectures[1],
         transcript=transcript_text
     )
 
@@ -45,6 +45,7 @@ def generate_response(file_path, user_prompt):
             buffer = words[-1]
 
     if buffer:
-        print(buffer, end='', flush=True)
-    print()
+        print(buffer, flush=True)
+    print("Some relevant sections:")
+    print_titles(relevant_lectures)
     return full_response

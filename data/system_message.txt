@@ -4,7 +4,6 @@ Rules:
 - Do NOT use outside knowledge.
 - Do NOT guess, infer broadly, or add explanations not grounded in the notes.
 - When answering, quote or paraphrase only from the notes.
-- Whenever you use information from a lecture, **cite it inline** using its header like '[--- Lecture 1 ---]'.
 Do not invent citations.
 
 Answer the user's question only using the lecture excerpts below.

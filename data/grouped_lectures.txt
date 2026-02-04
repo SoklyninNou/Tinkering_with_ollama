@@ -619,7 +619,7 @@ In *Genetic Algorithms*, we keep the best N solutions at each step based on a fi
 = Background
 In search problems, we are making a number of assumptions about the world: a single agent, deterministic actions, fully observed states, discrete state spaces. etc. So we have to come up with the notion of *Identification Problems*, which is a problem of setting assignments to variables. This problem only focuses on the goal, not the path.
 
-== Constraint Satisfaction Problems
+== Constraint Satisfaction Problems (CSPs)
 *Constraint Satisfaction Problems* are subsets of search problems where a states are variables $XX_i$ with values from a domain $DD$. Our goal is to set constraints specifying allowable combinations of values for subsets of variables. Additionally, our constraint can be *Implicit*, which relates multiple variables to each other, or *Explicit*, which defines a set of possible values for that variable. The solution are assignments that satisfies all the constraints.
 
 === Binary Constraint Satisfaction Problems

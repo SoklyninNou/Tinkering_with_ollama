@@ -2,6 +2,7 @@ import time
 import os
 from pathlib import Path
 from bs4 import BeautifulSoup
+from section_tree import *
 
 def load_context(file_path):
     with open(file_path, "r", encoding="utf-8") as f:

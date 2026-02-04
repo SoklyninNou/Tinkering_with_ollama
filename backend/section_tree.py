@@ -97,24 +97,28 @@ def print_tree(node: Node, indent: int = 0):
     for child in node.children:
         print_tree(child, indent + 1)
 
+def print_titles(sections: Tuple):
+    titles = []
+    for node, _ in sections:
+        print("    - " + node.title)
 
-if __name__ == "__main__":
-    with open("data/grouped_lectures.txt", "r", encoding="utf-8") as f:
-        lines = f.readlines()
+# if __name__ == "__main__":
+#     with open("data/grouped_lectures.txt", "r", encoding="utf-8") as f:
+#         lines = f.readlines()
 
-    tree = build_tree(lines)
-    compute_embeddings(tree)
+#     tree = build_tree(lines)
+#     compute_embeddings(tree)
 
-    prompt = "What is k-consistency"
+#     prompt = "What is k-consistency"
 
-    sections = find_k_most_relevant_sections(tree, prompt, k=6)
+#     sections = find_k_most_relevant_sections(tree, prompt, k=6)
 
-    print(f"\nPrompt: {prompt}\n")
-    print("Document structure:")
-    print_tree(tree)
+#     print(f"\nPrompt: {prompt}\n")
+#     print("Document structure:")
+#     print_tree(tree)
 
-    print("\nTop relevant sections:")
-    for node, score in sections:
-        print(f"\nScore: {score:.4f}")
-        print_section(node)
+#     print("\nTop relevant sections:")
+#     for node, score in sections:
+#         print(f"\nScore: {score:.4f}")
+#         print_section(node)
 
