@@ -22,7 +22,7 @@ def generate_response(file_path, user_prompt):
 
     # Call the model
     response = ollama.chat(
-        model='llama3.2',
+        model='qwen3',
         messages=[
             {'role': 'system', 'content': system_message},
             {'role': 'user', 'content': user_prompt}
