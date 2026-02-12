@@ -51,7 +51,23 @@ def build_tree(lines: List[str]) -> Node:
 
     return root
 
-
+def dict_node(node: Node):
+    if node is None:
+        return None
+    serialized_node = {
+        node.embedding:
+        [
+            node.title,
+            node.level,
+            node.children,
+            node.content
+        ]
+        }
+    
+def save_node(node: Node, tree_file):
+    with open(tree_file, "w", encoding="utf-8") as f:
+        f.write(dict_node(node))
+    
 def compute_embeddings(node: Node):
     if node.title != "ROOT":
         text = node.title + " " + " ".join(node.content[:5])
@@ -102,12 +118,13 @@ def print_titles(sections: Tuple):
     for node, _ in sections:
         print("    - " + node.title)
 
-# if __name__ == "__main__":
-#     with open("data/grouped_lectures.txt", "r", encoding="utf-8") as f:
-#         lines = f.readlines()
+if __name__ == "__main__":
+    with open("data/grouped_lectures.txt", "r", encoding="utf-8") as f:
+        lines = f.readlines()
 
-#     tree = build_tree(lines)
-#     compute_embeddings(tree)
+    tree = build_tree(lines)
+    compute_embeddings(tree)
+    save_node(Node("ROOT", 0), "data/tree.txt")
 
 #     prompt = "What is k-consistency"
 

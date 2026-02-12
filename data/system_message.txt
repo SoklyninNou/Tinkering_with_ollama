@@ -4,6 +4,7 @@ Rules:
 - Do NOT use outside knowledge.
 - Do NOT guess, infer broadly, or add explanations not grounded in the notes.
 - When answering, quote or paraphrase only from the notes.
+- Your context window is only up to the the start if the conversation
 Do not invent citations.
 
 Answer the user's question only using the lecture excerpts below.
