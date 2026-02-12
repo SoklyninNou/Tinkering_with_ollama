@@ -63,10 +63,11 @@ def dict_node(node: Node):
             node.content
         ]
         }
+    return serialized_node
     
 def save_node(node: Node, tree_file):
     with open(tree_file, "w", encoding="utf-8") as f:
-        f.write(dict_node(node))
+        f.write(str(dict_node(node)))
     
 def compute_embeddings(node: Node):
     if node.title != "ROOT":
@@ -106,12 +107,16 @@ def print_section(node: Node):
     for line in node.content:
         print(line)
 
-
-def print_tree(node: Node, indent: int = 0):
+# Prints entire tree
+def print_tree(node: Node, indent: int = -1, new_file=True):
+    if new_file:
+        with open("data/tree.txt", "w", encoding="utf-8") as f:
+            f.write("")
     if node.title != "ROOT":
-        print("  " * indent + node.title)
+        with open("data/tree.txt", "a", encoding="utf-8") as f:
+            f.write("  " * indent + node.title + "\n")
     for child in node.children:
-        print_tree(child, indent + 1)
+        print_tree(child, indent + 1, False)
 
 def print_titles(sections: Tuple):
     titles = []
@@ -124,7 +129,8 @@ if __name__ == "__main__":
 
     tree = build_tree(lines)
     compute_embeddings(tree)
-    save_node(Node("ROOT", 0), "data/tree.txt")
+    save_node(tree, "data/tree.txt")
+    print_tree(tree)
 
 #     prompt = "What is k-consistency"
 

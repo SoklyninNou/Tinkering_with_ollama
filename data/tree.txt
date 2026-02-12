@@ -1,0 +1,267 @@
+Foramlizing Learning
+  Inductive Learning
+  Bias and Variance
+Decision Trees
+  Decision Trees vs Perceptrons
+  Entropy and Information
+  P-Chance
+Optimization
+  Gradient Descent/Ascent
+Deep Neural Networks
+  Training DNNs
+Classification
+  Naive Bayes Classifier
+  Inference for Naive Bayes
+  General Naive Bayes
+  Traing and Testing
+  Parameter Estimation
+    Maximum Likelihood Estimation (MLE)
+    Maximum A Posteriori (MAP) Estimation
+  Laplace Smoothing
+  Confidence
+Linear Classifier
+  Decision Rule
+  Weight Updates / Perceptrons
+    Binary Perceptrons
+    Multiclass Perceptrons
+  Logistic Regression
+Filtering
+  Particle Filtering
+    Robot Localization Example
+Discriminative AI for Healthcare
+  Applications
+  Generative AI Models
+  Fidelity and Diversity
+  Human Evaluation of Generative Models
+Large Language Models
+  Text Tokenization
+  Word Embeddings
+  Self-Attention
+  Multi-Head Attention
+Transformer Architecture
+Unsupervised / Self-Supervised Learning
+  Pre-training and Fine-tuning
+Multi-Modal Models
+Markov Chains
+  Mini-Forward Algorithm
+  Stationary Distributions
+  Hidden Markov Models (HMMs)
+  Filtering / Monitoring
+    Passage of Time Update
+    Observation Update
+  Forward Algorithm
+  Online Belief Update
+Informed Search
+  Search Heuristic
+  Greedy Search
+  A\* Search
+  Admissible Heuristic
+  Creating Heuristics
+Search Problems
+  State Space
+  State Space Graphs
+    Depth-First Search
+    Breadth-First Search
+  Uniform Cost Search
+Background
+  Rational Decisions
+  Designing Ration Agents
+    Reflex Agents
+    Planning Agents
+    K-Consistency
+    Structure
+  Iterative Algorithms for CSPs
+  Local Search
+  Genetic Algorithms
+Background
+  Constraint Satisfaction Problems (CSPs)
+    Binary Constraint Satisfaction Problems
+  Solving Constraint Satisfaction Problems
+    Backtracking Search
+      Filtering
+      Arc Consistency
+      Ordering
+Types of Games
+  Deterministic Games
+  Zero Sum Games
+  Adversarial Search
+  Minimax Values
+  Alpha-Beta Pruning
+  Resource Limits
+  Indeterministic Games (Expectimax)
+  Multi-Agent Utilities
+  Bellman Equations
+  Policy Method/Evaluation
+  Policy Extraction
+  Policy Iteration
+Non-deterministic Search
+  Markov Decision Problem
+  Utilities of Sequences
+  Solving MDPs
+Background
+  Rational Decisions
+  Designing Ration Agents
+    Reflex Agents
+    Planning Agents
+Search Problems
+  State Space
+  State Space Graphs
+    Depth-First Search
+    Breadth-First Search
+  Uniform Cost Search
+Informed Search
+  Search Heuristic
+  Greedy Search
+  A\* Search
+  Admissible Heuristic
+  Creating Heuristics
+Foramlizing Learning
+  Inductive Learning
+  Bias and Variance
+Decision Trees
+  Decision Trees vs Perceptrons
+  Entropy and Information
+  P-Chance
+Optimization
+  Gradient Descent/Ascent
+Deep Neural Networks
+  Training DNNs
+Classification
+  Naive Bayes Classifier
+  Inference for Naive Bayes
+  General Naive Bayes
+  Traing and Testing
+  Parameter Estimation
+    Maximum Likelihood Estimation (MLE)
+    Maximum A Posteriori (MAP) Estimation
+  Laplace Smoothing
+  Confidence
+Linear Classifier
+  Decision Rule
+  Weight Updates / Perceptrons
+    Binary Perceptrons
+    Multiclass Perceptrons
+  Logistic Regression
+Filtering
+  Particle Filtering
+    Robot Localization Example
+Discriminative AI for Healthcare
+  Applications
+  Generative AI Models
+  Fidelity and Diversity
+  Human Evaluation of Generative Models
+Large Language Models
+  Text Tokenization
+  Word Embeddings
+  Self-Attention
+  Multi-Head Attention
+Transformer Architecture
+Unsupervised / Self-Supervised Learning
+  Pre-training and Fine-tuning
+Multi-Modal Models
+Markov Chains
+  Mini-Forward Algorithm
+  Stationary Distributions
+  Hidden Markov Models (HMMs)
+  Filtering / Monitoring
+    Passage of Time Update
+    Observation Update
+  Forward Algorithm
+  Online Belief Update
+Informed Search
+  Search Heuristic
+  Greedy Search
+  A\* Search
+  Admissible Heuristic
+  Creating Heuristics
+Search Problems
+  State Space
+  State Space Graphs
+    Depth-First Search
+    Breadth-First Search
+  Uniform Cost Search
+Background
+  Rational Decisions
+  Designing Ration Agents
+    Reflex Agents
+    Planning Agents
+    K-Consistency
+    Structure
+  Iterative Algorithms for CSPs
+  Local Search
+  Genetic Algorithms
+Background
+  Constraint Satisfaction Problems
+    Binary Constraint Satisfaction Problems
+  Solving Constraint Satisfaction Problems
+    Backtracking Search
+      Filtering
+      Arc Consistency
+      Ordering
+Types of Games
+  Deterministic Games
+  Zero Sum Games
+  Adversarial Search
+  Minimax Values
+  Alpha-Beta Pruning
+  Resource Limits
+  Indeterministic Games (Expectimax)
+  Multi-Agent Utilities
+  Bellman Equations
+  Policy Method/Evaluation
+  Policy Extraction
+  Policy Iteration
+Non-deterministic Search
+  Markov Decision Problem
+  Utilities of Sequences
+  Solving MDPs
+Background
+  Rational Decisions
+  Designing Ration Agents
+    Reflex Agents
+    Planning Agents
+Search Problems
+  State Space
+  State Space Graphs
+    Depth-First Search
+    Breadth-First Search
+  Uniform Cost Search
+Informed Search
+  Search Heuristic
+  Greedy Search
+  A\* Search
+  Admissible Heuristic
+  Creating Heuristics
+Bayes Net Sampling
+  Prior Sampling
+  Rejection Sampling
+  Likelihood Weighting
+  Gibbs Sampling
+Decision Networks
+  Value of Information
+Partially Observable Markov Decision Processes (POMDPs)
+  Inference
+    Inference by Enumeration
+    Inference by Variable Elimination
+      Variable Elimination Ordering
+  Size of Bayes' Net
+  Independence of Bayes' Net
+  D-Separation
+  Active/Inactive Paths
+Reinforcement Learning
+  Model-Based Learning
+  Model Free Learning/Passive Reinforcement Learning
+    Sample-Based Policy Evaluation
+  Temporal Difference Learning / Exponential Moving Average
+  Active Reinforcement Learning
+    Q-Value Iteration
+  Exploration Function
+  Regret
+  Approximate Q-Learning
+  Policy Search
+    Independence
+Bayes' Net
+Uncertainty
+  Probabilistic Model
+  Probabilistic Inference
+    Inference by Enumeration
